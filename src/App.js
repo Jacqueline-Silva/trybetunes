@@ -7,14 +7,58 @@ import Search from './pages/Search';
 import Profile from './pages/Profile';
 import ProfileEdit from './pages/ProfileEdit';
 import NotFound from './pages/NotFound';
+import { createUser } from './services/userAPI';
+import Loading from './pages/Loading';
 
 class App extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      nameInput: '',
+      loading: false,
+      redirect: false,
+    };
+
+    this.handleClick = this.handleClick.bind(this);
+    this.inputChange = this.inputChange.bind(this);
+  }
+
+  async handleClick() {
+    const { nameInput } = this.state;
+    this.setState({
+      loading: true,
+    });
+    await createUser({ name: nameInput });
+
+    this.setState({
+      loading: false,
+      redirect: true,
+    });
+  }
+
+  inputChange({ target }) {
+    this.setState({
+      nameInput: target.value,
+    });
+  }
+
   render() {
+    const { nameInput, loading, redirect } = this.state;
+
     return (
       <>
+        { loading && <Loading />}
         <h1>TrybeTunes</h1>
         <Switch>
-          <Route path="/" render={ () => <Login /> } exact />
+          <Route exact path="/">
+            <Login
+              inputChange={ this.inputChange }
+              nameInput={ nameInput }
+              handleClick={ this.handleClick }
+              redirect={ redirect }
+            />
+          </Route>
 
           <Route path="/search" component={ Search } />
           <Route path="/album/:id" component={ Album } />
