@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
+import PropTypes from 'prop-types';
 
 class Login extends Component {
   render() {
-    const min = 3;
     const { inputChange, nameInput, handleClick, redirect } = this.props;
+    const min = 3;
 
     return (
       <div data-testid="page-login">

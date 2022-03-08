@@ -7,8 +7,9 @@ import Search from './pages/Search';
 import Profile from './pages/Profile';
 import ProfileEdit from './pages/ProfileEdit';
 import NotFound from './pages/NotFound';
-import { createUser } from './services/userAPI';
 import Loading from './pages/Loading';
+import { createUser, getUser } from './services/userAPI';
+import Header from './components/Header';
 
 class App extends React.Component {
   constructor() {
@@ -20,8 +21,13 @@ class App extends React.Component {
       redirect: false,
     };
 
+    this.handleProfile = this.handleProfile.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.inputChange = this.inputChange.bind(this);
+  }
+
+  componentDidMount() {
+    this.handleProfile();
   }
 
   async handleClick() {
@@ -29,11 +35,26 @@ class App extends React.Component {
     this.setState({
       loading: true,
     });
+
     await createUser({ name: nameInput });
 
     this.setState({
       loading: false,
       redirect: true,
+    });
+  }
+
+  async handleProfile() {
+    this.setState({
+      loading: true,
+    });
+
+    const result = await getUser();
+    const { name } = result;
+
+    this.setState({
+      nameInput: name,
+      loading: false,
     });
   }
 
@@ -48,8 +69,12 @@ class App extends React.Component {
 
     return (
       <>
-        { loading && <Loading />}
+        {
+          loading && <Loading />
+        }
+
         <h1>TrybeTunes</h1>
+        <Header nameInput={ nameInput } />
         <Switch>
           <Route exact path="/">
             <Login
