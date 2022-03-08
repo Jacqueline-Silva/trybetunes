@@ -61,3 +61,23 @@ nav {
   display: flex;
   justify-content: space-evenly;
 }
+
+.cardAlbum {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.minCardAlbum {
+  border: 2px solid rgb(255, 0, 85);
+  width: 280px;
+  height: 250px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  justify-content: space-evenly;
+  margin: 10px;
+}

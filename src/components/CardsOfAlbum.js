@@ -11,7 +11,7 @@ class CardsOfAlbum extends Component {
           <div>
             { `Resultado de álbuns de: ${resultArtist}` }
           </div>
-          <div>
+          <div className="cardAlbum">
             {
               album.map(({
                 artistName,
@@ -26,19 +26,24 @@ class CardsOfAlbum extends Component {
                   key={ artistId }
                   data-testid={ `link-to-album-${collectionId}` }
                 >
-                  <div key={ artistId }>
+                  <div key={ artistId } className="minCardAlbum">
                     <p>
-                      Artista:
+                      <strong>Artista:</strong>
+                      {' '}
                       { artistName }
                     </p>
                     <p>
-                      Album:
+                      <strong>Album:</strong>
+                      {' '}
                       { collectionName }
                     </p>
                     <img src={ artworkUrl100 } alt={ collectionName } />
                     <p>
-                      Preço: U$
-                      { collectionPrice }
+                      <em>
+                        Preço: U$
+                        {' '}
+                        { collectionPrice }
+                      </em>
                     </p>
                     <br />
                   </div>
