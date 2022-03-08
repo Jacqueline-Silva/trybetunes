@@ -9,11 +9,44 @@ class Header extends Component {
     return (
       <header data-testid="header-component">
         <nav>
-          <NavLink to="/search" activeClassName="active"> Search </NavLink>
-          <NavLink to="/album/:id" activeClassName="active"> Album </NavLink>
-          <NavLink to="/favorites" activeClassName="active"> Favorites </NavLink>
-          <NavLink to="/profile" activeClassName="active" exact> Profile </NavLink>
-          <NavLink to="/profile/edit" activeClassName="active"> Profile Edit </NavLink>
+          <NavLink
+            to="/search"
+            data-testid="link-to-search"
+            activeClassName="active"
+          >
+            Search
+          </NavLink>
+
+          <NavLink
+            to="/album/:id"
+            activeClassName="active"
+          >
+            Album
+          </NavLink>
+
+          <NavLink
+            to="/favorites"
+            data-testid="link-to-favorites"
+            activeClassName="active"
+          >
+            Favorites
+          </NavLink>
+
+          <NavLink
+            to="/profile"
+            data-testid="link-to-profile"
+            activeClassName="active"
+            exact
+          >
+            Profile
+          </NavLink>
+
+          <NavLink
+            to="/profile/edit"
+            activeClassName="active"
+          >
+            Profile Edit
+          </NavLink>
         </nav>
         <div data-testid="header-user-name">
           { nameInput }
