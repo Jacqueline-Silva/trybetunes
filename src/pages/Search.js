@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import CardsOfAlbum from '../components/CardsOfAlbum';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import Loading from './Loading';
 
@@ -44,7 +44,6 @@ class Search extends Component {
   render() {
     const { nameArtist, loading, album, resultArtist } = this.state;
     const min = 2;
-    console.log(album, resultArtist);
 
     return (
       <div data-testid="page-search">
@@ -70,34 +69,7 @@ class Search extends Component {
                 Pesquisar
               </button>
               { album.length > 0
-                ? (
-                  <>
-                    <div>
-                      { `Resultado de álbuns de: ${resultArtist}` }
-                    </div>
-                    <div>
-                      {
-                        album.map(({
-                          artistName,
-                          artworkUrl100,
-                          artistId,
-                          collectionName,
-                          collectionId,
-                        }) => (
-                          <Link
-                            to={ `/album/${collectionId}` }
-                            key={ artistId }
-                            data-testid={ `link-to-album-${collectionId}` }
-                          >
-                            <img src={ artworkUrl100 } alt={ collectionName } />
-                            <p>{ collectionName }</p>
-                            <p>{ artistName }</p>
-                          </Link>
-                        ))
-                      }
-                    </div>
-                  </>
-                )
+                ? <CardsOfAlbum album={ album } resultArtist={ resultArtist } />
                 : <p>Nenhum álbum foi encontrado</p> }
             </>
           )}
