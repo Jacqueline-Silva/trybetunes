@@ -17,7 +17,6 @@ class App extends React.Component {
 
     this.state = {
       nameInput: '',
-      nameArtist: '',
       loading: false,
       redirect: false,
     };
@@ -44,11 +43,10 @@ class App extends React.Component {
     this.setState({
       [target.name]: target.value,
     });
-    console.log(target.name, target.value);
   }
 
   render() {
-    const { nameInput, loading, redirect, nameArtist } = this.state;
+    const { nameInput, loading, redirect } = this.state;
 
     return (
       <>
@@ -66,12 +64,7 @@ class App extends React.Component {
             />
           </Route>
 
-          <Route path="/search">
-            <Search
-              inputChange={ this.inputChange }
-              nameArtist={ nameArtist }
-            />
-          </Route>
+          <Route path="/search" component={ Search } />
           <Route path="/album/:id" component={ Album } />
           <Route path="/favorites" component={ Favorites } />
           <Route path="/profile" component={ Profile } exact />
