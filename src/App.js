@@ -50,12 +50,10 @@ class App extends React.Component {
 
     return (
       <>
+        <Header loading={ loading } />
         {
           loading && <Loading />
         }
-
-        <h1>TrybeTunes</h1>
-        <Header loading={ loading } />
         <Switch>
           <Route exact path="/">
             <Login

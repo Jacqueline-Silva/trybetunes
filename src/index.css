@@ -25,13 +25,39 @@ code {
 }
 
 .active {
-  font-size: 1.5rem;
   font-weight: 700;
+  color: white;
 }
 
-header, header a {
+header {
   background-color: rgb(255, 0, 85);
   color: white;
   text-align: center;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.title-profile {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.title-profile h3 {
+  background-color: aliceblue;
+  color: rgb(255, 0, 85);
+  width: 180px;
+  padding: 7px;
+  border-radius: 50px;
+}
+
+a {
   text-decoration: none;
+  color: rgb(184, 184, 184);
+}
+
+nav {
+  display: flex;
+  justify-content: space-evenly;
 }

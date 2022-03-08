@@ -35,9 +35,17 @@ class Header extends Component {
 
     return (
       <header data-testid="header-component">
-        {
-          loading && <Loading />
-        }
+        <div
+          data-testid="header-user-name"
+          className="title-profile"
+        >
+          <h1>TrybeTunes</h1>
+          <h3>
+            {
+              loading ? <Loading /> : nameInput
+            }
+          </h3>
+        </div>
         <nav>
           <NavLink
             to="/search"
@@ -78,11 +86,6 @@ class Header extends Component {
             Profile Edit
           </NavLink>
         </nav>
-        <div data-testid="header-user-name">
-          {
-            !loading && nameInput
-          }
-        </div>
       </header>
     );
   }
