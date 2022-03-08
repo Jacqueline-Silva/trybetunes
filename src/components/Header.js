@@ -1,13 +1,43 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import { getUser } from '../services/userAPI';
+import Loading from '../pages/Loading';
 
 class Header extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      loading: false,
+      nameInput: '',
+    };
+
+    this.handleProfile = this.handleProfile.bind(this);
+  }
+
+  componentDidMount() {
+    this.handleProfile();
+  }
+
+  async handleProfile() {
+    this.setState({
+      loading: true,
+    });
+    const result = await getUser();
+    this.setState({
+      nameInput: result.name,
+      loading: false,
+    });
+  }
+
   render() {
-    const { nameInput } = this.props;
+    const { nameInput, loading } = this.state;
 
     return (
       <header data-testid="header-component">
+        {
+          loading && <Loading />
+        }
         <nav>
           <NavLink
             to="/search"
@@ -49,15 +79,13 @@ class Header extends Component {
           </NavLink>
         </nav>
         <div data-testid="header-user-name">
-          { nameInput }
+          {
+            !loading && nameInput
+          }
         </div>
       </header>
     );
   }
 }
-
-Header.propTypes = {
-  nameInput: PropTypes.string.isRequired,
-};
 
 export default Header;
