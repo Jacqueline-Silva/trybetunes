@@ -26,7 +26,7 @@ class CardsOfAlbum extends Component {
                   key={ artistId }
                   data-testid={ `link-to-album-${collectionId}` }
                 >
-                  <div key={ artistId } className="minCardAlbum">
+                  <div className="minCardAlbum">
                     <p>
                       <strong>Artista:</strong>
                       {' '}
