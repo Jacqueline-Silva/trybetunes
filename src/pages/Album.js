@@ -69,17 +69,13 @@ class Album extends Component {
                 <div className="cardList">
                   {listSongs
                     .filter(({ trackName }) => trackName)
-                    .map(({
-                      trackName,
-                      previewUrl,
-                      trackId,
-                    }) => (
-                      <div className="cardSong" key={ trackName }>
+                    .map((music) => (
+                      <div className="cardSong" key={ music.trackName }>
                         <MusicCard
-                          listSongs={ listSongs }
-                          trackId={ trackId }
-                          trackName={ trackName }
-                          previewUrl={ previewUrl }
+                          music={ music }
+                          trackId={ music.trackId }
+                          trackName={ music.trackName }
+                          previewUrl={ music.previewUrl }
                         />
                       </div>
                     ))}
