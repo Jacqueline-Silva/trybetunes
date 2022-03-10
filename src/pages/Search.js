@@ -52,28 +52,31 @@ class Search extends Component {
         { loading
           ? <Loading />
           : (
-            <>
+            <div className="search">
               <h3>Search</h3>
-              <label htmlFor="searchArtist">
-                <input
-                  name="nameArtist"
-                  data-testid="search-artist-input"
-                  value={ nameArtist }
-                  onChange={ this.inputChange }
-                />
-              </label>
-              <button
-                type="submit"
-                data-testid="search-artist-button"
-                disabled={ nameArtist.length < min }
-                onClick={ this.handleClick }
-              >
-                Pesquisar
-              </button>
+              <div className="search--input">
+                <label htmlFor="searchArtist">
+                  <input
+                    name="nameArtist"
+                    placeholder="Artista / Banda"
+                    data-testid="search-artist-input"
+                    value={ nameArtist }
+                    onChange={ this.inputChange }
+                  />
+                </label>
+                <button
+                  type="submit"
+                  data-testid="search-artist-button"
+                  disabled={ nameArtist.length < min }
+                  onClick={ this.handleClick }
+                >
+                  Pesquisar
+                </button>
+              </div>
               { album.length > 0
                 ? <CardsOfAlbum album={ album } resultArtist={ resultArtist } />
-                : <p>Nenhum álbum foi encontrado</p> }
-            </>
+                : <p className="notAlbum"> Nenhum álbum foi encontrado</p> }
+            </div>
           )}
       </div>
     );

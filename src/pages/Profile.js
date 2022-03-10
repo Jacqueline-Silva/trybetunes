@@ -6,7 +6,9 @@ class Profile extends Component {
     return (
       <div data-testid="page-profile">
         <Header />
-        Profile
+        <div className="profile">
+          <h3>Profile</h3>
+        </div>
       </div>
     );
   }

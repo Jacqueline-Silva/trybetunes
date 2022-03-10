@@ -50,9 +50,9 @@ class Album extends Component {
         { loading
           ? <Loading />
           : (
-            <>
+            <div className="album">
               <h3>Lista de músicas do Album</h3>
-              <div data-testid="artist-name">
+              <div data-testid="artist-name" className="album--artist-name">
                 { nameArtist }
               </div>
               <div data-testid="album-name" className="list">
@@ -83,7 +83,7 @@ class Album extends Component {
                     ))}
                 </div>
               </div>
-            </>
+            </div>
           )}
       </div>
     );

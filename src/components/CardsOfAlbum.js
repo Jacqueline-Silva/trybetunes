@@ -8,8 +8,10 @@ class CardsOfAlbum extends Component {
     return (
       (
         <>
-          <div>
-            { `Resultado de álbuns de: ${resultArtist}` }
+          <div className="resultAlbum">
+            <p>
+              { `Resultado de álbuns de: ${resultArtist}` }
+            </p>
           </div>
           <div className="cardAlbum">
             {

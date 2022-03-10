@@ -91,7 +91,7 @@ header {
   font-size: 1.2rem;
 }
 
-a {
+nav a {
   text-decoration: none;
   color: rgb(184, 184, 184);
 }
@@ -158,4 +158,53 @@ nav {
   justify-content: space-around;
   width: 100%;
   margin: 20px;
+}
+
+.search {
+  margin: 15px;
+}
+
+.search h3, .album h3, .favorite h3, .profile h3, .profileEdit h3 {
+  color: rgb(255, 0, 85);
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.search--input {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  margin-bottom: 40px;
+}
+
+.search--input input {
+  border-radius: 50px;
+  border: 2px solid rgb(255, 0, 85);
+  margin-bottom: 5px;
+  margin-right: 5px;
+  width: 300px;
+  padding: 5px;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.search--input button {
+  border-radius: 50px;
+  background: rgb(255, 0, 85);
+  color: white;
+  width: 100px;
+  padding: 5px;
+  font-size: 1.1rem;
+}
+
+.resultAlbum, .album--artist-name, .notAlbum {
+  color: rgb(56, 56, 56);
+  font-size: 1.2rem;
+  margin: 25px;
+}
+
+.search a {
+  text-decoration: none;
+  color: rgb(88, 87, 87);
 }
