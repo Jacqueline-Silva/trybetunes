@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CardsOfAlbum from '../components/CardsOfAlbum';
+import Header from '../components/Header';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import Loading from './Loading';
 
@@ -47,6 +48,7 @@ class Search extends Component {
 
     return (
       <div data-testid="page-search">
+        <Header />
         { loading
           ? <Loading />
           : (

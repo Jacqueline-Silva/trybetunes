@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import getMusics from '../services/musicsAPI';
 import Loading from './Loading';
 import MusicCard from '../components/MusicCard';
+import Header from '../components/Header';
 
 class Album extends Component {
   constructor() {
@@ -45,6 +46,7 @@ class Album extends Component {
 
     return (
       <div data-testid="page-album">
+        <Header />
         { loading
           ? <Loading />
           : (

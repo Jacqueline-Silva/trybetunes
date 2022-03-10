@@ -9,7 +9,6 @@ import ProfileEdit from './pages/ProfileEdit';
 import NotFound from './pages/NotFound';
 import Loading from './pages/Loading';
 import { createUser } from './services/userAPI';
-import Header from './components/Header';
 
 class App extends React.Component {
   constructor() {
@@ -50,7 +49,6 @@ class App extends React.Component {
 
     return (
       <>
-        <Header loading={ loading } />
         {
           loading && <Loading />
         }

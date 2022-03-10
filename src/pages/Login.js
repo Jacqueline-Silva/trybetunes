@@ -8,29 +8,31 @@ class Login extends Component {
     const min = 3;
 
     return (
-      <div data-testid="page-login">
+      <div data-testid="page-login" className="login">
         <h2>Login</h2>
+        <div className="login--input">
+          <label htmlFor="nameInput">
+            <input
+              type="text"
+              data-testid="login-name-input"
+              name="nameInput"
+              placeholder="Digite seu nome"
+              onChange={ inputChange }
+            />
+          </label>
 
-        <label htmlFor="nameInput">
-          <input
-            type="text"
-            data-testid="login-name-input"
-            name="nameInput"
-            onChange={ inputChange }
-          />
-        </label>
-
-        <button
-          type="submit"
-          data-testid="login-submit-button"
-          disabled={ nameInput.length < min }
-          onClick={ handleClick }
-        >
-          Entrar
-        </button>
-        {
-          redirect && <Redirect to="/search" />
-        }
+          <button
+            type="submit"
+            data-testid="login-submit-button"
+            disabled={ nameInput.length < min }
+            onClick={ handleClick }
+          >
+            Entrar
+          </button>
+          {
+            redirect && <Redirect to="/search" />
+          }
+        </div>
       </div>
     );
   }
