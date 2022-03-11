@@ -85,10 +85,15 @@ class MusicCard extends Component {
 }
 
 MusicCard.propTypes = {
-  trackId: PropTypes.string.isRequired,
+  trackId: PropTypes.number.isRequired,
   trackName: PropTypes.string.isRequired,
   previewUrl: PropTypes.string.isRequired,
-  music: PropTypes.arrayOf(PropTypes.object).isRequired,
+  music: PropTypes.shape({
+    artistId: PropTypes.number,
+    wrapperType: PropTypes.string,
+  }).isRequired,
 };
+
+/* REF: https://pt-br.reactjs.org/docs/typechecking-with-proptypes.html#gatsby-focus-wrapper */
 
 export default MusicCard;

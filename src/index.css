@@ -20,6 +20,7 @@ code {
 
 .loading {
   align-items: center;
+  color: rgb(56, 56, 56);
   display: flex;
   justify-content: center;
 }
@@ -60,7 +61,7 @@ header {
   justify-content: center;
 }
 
-.login h2 {
+.login h2, .notFound h3 {
   font-size: 2.5rem;
   color: rgb(255, 0, 85);
   margin-bottom: 20px;
@@ -207,4 +208,39 @@ nav {
 .search a {
   text-decoration: none;
   color: rgb(88, 87, 87);
+}
+
+.favorite--center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.dadosProfile {
+  border: 2px solid rgb(255, 0, 85);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 500px;
+  height: 400px;
+  padding: 10px;
+}
+
+.dadosProfile img {
+  background-color: aqua;
+  border: 2px solid rgb(255, 0, 85);
+}
+
+.dadosProfile button {
+  border-radius: 50px;
+  background: rgb(255, 0, 85);
+  color: white;
+  padding: 5px;
+  font-size: 1.1rem;
 }

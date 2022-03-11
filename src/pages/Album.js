@@ -19,13 +19,13 @@ class Album extends Component {
   }
 
   componentDidMount() {
+    this.requestListAlbum();
+  }
+
+  async requestListAlbum() {
     const { match } = this.props;
     const { params: { id } } = match;
 
-    this.requestListAlbum(id);
-  }
-
-  async requestListAlbum(id) {
     this.setState({
       loading: true,
     });
