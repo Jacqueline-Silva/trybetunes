@@ -60,7 +60,7 @@ class Profile extends Component {
                 src={ image === '' ? 'https://flyclipart.com/thumb2/profile-icon-png-black-196391.png' : image }
                 alt={ name }
                 data-testid="profile-image"
-                width="200px"
+                width="180px"
               />
               <h4>Nome: </h4>
               <p>

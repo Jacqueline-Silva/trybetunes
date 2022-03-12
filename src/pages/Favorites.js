@@ -9,7 +9,7 @@ class Favorites extends Component {
     super();
 
     this.state = {
-      loading: false,
+      /* loading: false, */
       favoritesSongs: [],
     };
 
@@ -37,19 +37,19 @@ class Favorites extends Component {
 
   async getFavorites() {
     this.setState({
-      loading: true,
+      /* loading: true, */
     });
 
     const favorites = await getFavoriteSongs();
 
     this.setState({
-      loading: false,
+      /* loading: false, */
       favoritesSongs: favorites,
     });
   }
 
   render() {
-    const { loading, favoritesSongs } = this.state;
+    const { /* loading, */ favoritesSongs } = this.state;
 
     return (
       <div data-testid="page-favorites">

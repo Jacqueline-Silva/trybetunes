@@ -69,11 +69,11 @@ class MusicCard extends Component {
           O seu navegador não suporta o elemento
           <code>audio</code>
         </audio>
-        <label htmlFor="favorite">
+        <label htmlFor="favorita">
           Favorite:
           <input
             type="checkbox"
-            name="favorite"
+            name="favorita"
             checked={ favorite }
             data-testid={ `checkbox-music-${trackId}` }
             onChange={ this.addFavorite }
