@@ -13,28 +13,14 @@ class MusicCard extends Component {
     };
 
     this.getListFavorite = this.getListFavorite.bind(this);
-    this.addFavorite = this.addFavorite.bind(this);
+    this.handleFavorite = this.handleFavorite.bind(this);
   }
 
   componentDidMount() {
     this.getListFavorite();
   }
 
-  async getListFavorite() {
-    const { trackId } = this.props;
-    this.setState({
-      loading: true,
-    });
-
-    const favs = await getFavoriteSongs();
-
-    this.setState({
-      loading: false,
-      favorite: favs.some((e) => e.trackId === trackId),
-    });
-  }
-
-  async addFavorite({ target }) {
+  async handleFavorite({ target }) {
     const { music } = this.props;
     this.setState({
       loading: true,
@@ -52,33 +38,54 @@ class MusicCard extends Component {
     });
   }
 
+  async getListFavorite() {
+    const { trackId } = this.props;
+    this.setState({
+      loading: true,
+    });
+
+    const favs = await getFavoriteSongs();
+
+    this.setState({
+      loading: false,
+      favorite: favs.some((e) => e.trackId === trackId),
+    });
+  }
+
   render() {
     const { trackName, previewUrl, trackId } = this.props;
     const { loading, favorite } = this.state;
 
     return (
       <div className="song">
-        { loading && <Loading />}
-        { trackName }
-        <audio
-          data-testid="audio-component"
-          src={ previewUrl }
-          controls
-        >
-          <track kind="captions" />
-          O seu navegador não suporta o elemento
-          <code>audio</code>
-        </audio>
-        <label htmlFor="favorita">
-          Favorite:
-          <input
-            type="checkbox"
-            name="favorita"
-            checked={ favorite }
-            data-testid={ `checkbox-music-${trackId}` }
-            onChange={ this.addFavorite }
-          />
-        </label>
+        {
+          loading
+            ? <Loading />
+            : (
+              <>
+                <p>{ trackName }</p>
+                <audio
+                  data-testid="audio-component"
+                  src={ previewUrl }
+                  controls
+                >
+                  <track kind="captions" />
+                  O seu navegador não suporta o elemento
+                  <code>audio</code>
+                </audio>
+                <label htmlFor="favorita">
+                  Favorita
+                  <input
+                    type="checkbox"
+                    name="favorita"
+                    checked={ favorite }
+                    data-testid={ `checkbox-music-${trackId}` }
+                    onChange={ this.handleFavorite }
+                  />
+                </label>
+              </>
+            )
+        }
       </div>
     );
   }

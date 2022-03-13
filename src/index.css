@@ -38,6 +38,23 @@ header {
   margin-bottom: 20px;
 }
 
+nav a {
+  text-decoration: none;
+  color: rgb(209, 203, 203);
+  margin: 0px 40px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  
+}
+
+.link-header {
+  text-decoration: none;
+  color: white;
+}
+
 .title-profile {
   align-items: center;
   display: flex;
@@ -48,7 +65,7 @@ header {
 .title-profile h3 {
   background-color: aliceblue;
   color: rgb(255, 0, 85);
-  width: 180px;
+  width: 220px;
   padding: 7px;
   border-radius: 50px;
 }
@@ -90,16 +107,6 @@ header {
   width: 100px;
   padding: 5px;
   font-size: 1.2rem;
-}
-
-nav a {
-  text-decoration: none;
-  color: rgb(184, 184, 184);
-}
-
-nav {
-  display: flex;
-  justify-content: space-evenly;
 }
 
 .cardAlbum {
@@ -277,7 +284,8 @@ nav {
 .profileEdit--forms input {
   width: 98%;
   padding: 3px;
-  color: rgb(255, 0, 85);;
+  color: rgb(255, 0, 85);
+  font-weight: 700;
 }
 
 .profileEdit--forms button {

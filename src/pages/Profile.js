@@ -44,7 +44,6 @@ class Profile extends Component {
   render() {
     const { dadosProfile, loading, redirectEdit } = this.state;
     const { name, email, description, image } = dadosProfile;
-    console.log(dadosProfile);
 
     return (
       <div data-testid="page-profile">
@@ -53,37 +52,40 @@ class Profile extends Component {
           <h3>Profile</h3>
           <div>
             {
-              loading && <Loading />
+              loading
+                ? <Loading />
+                : (
+                  <div key={ name } className="dadosProfile">
+                    <img
+                      src={ image === '' ? 'https://flyclipart.com/thumb2/profile-icon-png-black-196391.png' : image }
+                      alt={ name }
+                      data-testid="profile-image"
+                      width="180px"
+                    />
+                    <h4>Nome: </h4>
+                    <p>
+                      { name }
+                    </p>
+                    <h4>Email: </h4>
+                    <p>
+                      { email }
+                    </p>
+                    <h4>Descrição: </h4>
+                    <p>
+                      { description }
+                    </p>
+                    <button
+                      type="button"
+                      onClick={ this.redirect }
+                    >
+                      Editar perfil
+                    </button>
+                    {
+                      redirectEdit && <Redirect to="/profile/edit" />
+                    }
+                  </div>
+                )
             }
-            <div key={ name } className="dadosProfile">
-              <img
-                src={ image === '' ? 'https://flyclipart.com/thumb2/profile-icon-png-black-196391.png' : image }
-                alt={ name }
-                data-testid="profile-image"
-                width="180px"
-              />
-              <h4>Nome: </h4>
-              <p>
-                { name }
-              </p>
-              <h4>Email: </h4>
-              <p>
-                { email }
-              </p>
-              <h4>Descrição: </h4>
-              <p>
-                { description }
-              </p>
-              <button
-                type="button"
-                onClick={ this.redirect }
-              >
-                Editar perfil
-              </button>
-              {
-                redirectEdit && <Redirect to="/profile/edit" />
-              }
-            </div>
           </div>
         </div>
       </div>

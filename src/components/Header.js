@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
 import Loading from '../pages/Loading';
 
@@ -39,7 +39,9 @@ class Header extends Component {
           data-testid="header-user-name"
           className="title-profile"
         >
-          <h1>TrybeTunes</h1>
+          <h1>
+            <Link to="/" exact className="link-header"> TrybeTunes </Link>
+          </h1>
           <h3>
             {
               loading ? <Loading /> : nameInput
@@ -55,12 +57,7 @@ class Header extends Component {
             Search
           </NavLink>
 
-          <NavLink
-            to="/album/:id"
-            activeClassName="active"
-          >
-            Album
-          </NavLink>
+          <NavLink to="/album/:id"> </NavLink>
 
           <NavLink
             to="/favorites"
@@ -70,6 +67,8 @@ class Header extends Component {
             Favorites
           </NavLink>
 
+          <NavLink to="/profile/edit"> </NavLink>
+
           <NavLink
             to="/profile"
             data-testid="link-to-profile"
@@ -77,13 +76,6 @@ class Header extends Component {
             exact
           >
             Profile
-          </NavLink>
-
-          <NavLink
-            to="/profile/edit"
-            activeClassName="active"
-          >
-            Profile Edit
           </NavLink>
         </nav>
       </header>
