@@ -1,6 +1,6 @@
 # Projeto Trybetunes :notes:
 
-:rocket: *Desenvolvido em: 02/2022 - Bloco 10/Trybe*
+:rocket: *Desenvolvido em: 02/2022 - Bloco 12/Trybe*
 
 ![App Screenshot](./src/img/trybetunes.gif)
 
